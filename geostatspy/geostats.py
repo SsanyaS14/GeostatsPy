@@ -120,9 +120,15 @@ def backtr_value(vrgs,vr,vrg,zmin,zmax,ltail,ltpar,utail,utpar):
     return backtr
 
 def gcum(x):
-    """Calculate the cumulative probability of the standard normal distribution.
+    """Calculate the cumulative probability of the standard normal distribution. 
+    Since this is calculating cumlative probability, if values of param x is between 0.00 - 6.00, 
+    then the return value will be between 0.50 - 1.00. Otherwise, if param x > 6.00, the return value
+    is equal to one. If the value of param x is between -3.00 - 0.00, then the return value will be between 
+    0.001 - 0.50. Any value less than -3.00 will return a value of 0.00 or a value near 0.00. 
     :param x: the value from the standard normal distribution 
-    :return: TODO
+    :type x: float or int
+    :return: cumlative probability based on x
+    :type return: float
     """    
     
     z = x
@@ -317,9 +323,14 @@ def gauinv(p):
 def gcum(x):
     """Evaluate the standard normal cdf given a normal deviate `x`. `gcum` is
     the area under a unit normal curve to the left of `x`. The results are
-    accurate only to about 5 decimal places.
-    :param x: TODO
-    :return: TODO
+    accurate only to about 5 decimal places. For values of param x is between 0.00 - 6.00, 
+    then the return value will be between 0.50 - 1.00. Otherwise, if param x > 6.00, the return value
+    is equal to one. If the value of param x is between -3.00 - 0.00, then the return value will be between 
+    0.001 - 0.50. Any value less than -3.00 will return a value of 0.00 or a value near 0.00. 
+    :param x: given normal deviate 'x' 
+    :type x: float or int
+    :return: cumlative probability based on x
+    :type return: float
     """
     z = x
     if z < 0:
